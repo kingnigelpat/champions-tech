@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Champions Tech</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .full-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        nav.second {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        nav.second ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav.second ul li {
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav.second ul li:hover {
+            color: #00ffff;
+        }
+
+        .head {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .head h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .text-overlay {
+            position: absolute;
+            right: 50%;
+            bottom: 20%;
+            transform: translate(50%, 50%);
+            text-align: center;
+            color: #E0FFFF;
+            font-family: Arial, sans-serif;
+        }
+
+        .text-overlay a {
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #E0FFFF;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background-color: rgba(131, 159, 170, 0.781);
+            border-radius: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .text-overlay a:hover {
+            background-color: rgba(255, 255, 255, 0.774);
+        }
+
+        .about-section, .support {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: url('123 Anywhere St. Any City, ST 12345.png') no-repeat center center/cover;
+            background-size: cover;
+            text-align: center;
+            color: #E0FFFF;
+        }
+
+        .support {
+            background: url('Sponsorship-Partnership-Proposal-featured') no-repeat center center/cover;
+        }
+
+        .about_content, .support_content {
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #1e1e1e;
+        }
+
+        .service h1 {
+            margin-bottom: 20px;
+        }
+
+        .service h4 {
+            margin-bottom: 10px;
+        }
+
+        .service img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 15px 5px rgba(255, 255, 255, 0.3);
+        }
+
+        .contact {
+            text-align: center;
+            padding: 50px;
+            background-color: #111;
+        }
+
+        .contact h1 {
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            background-color: #000;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin: 10px;
+        }
+
+        .tile-content h1 {
+            margin-bottom: 20px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .contact-row img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-row img:hover {
+            transform: scale(1.2);
+        }
+
+        .tile-field {
+            font-size: 1.1rem;
+        }
+
+        .form-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .button {
+            background-color: #00ffff;
+            color: #000;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #00cccc;
+        }
+
+        @media (max-width: 768px) {
+            .head h1 {
+                font-size: 2rem;
+            }
+
+            .text-overlay a {
+                font-size: 1.5rem;
+                padding: 0.5rem 0.8rem;
+            }
+
+            .about_content, .support_content {
+                width: 90%;
+                padding: 10px;
+            }
+
+            .service img {
+                max-width: 100%;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-column {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="1.png" alt="Champions Tech" class="full-image">
+        <nav class="second">
+            <ul>
+                <a href="#About"><li>About</li></a>
+                <a href="#serviceM"><li>Service</li></a>
+                <a href="#contact"><li>Contact</li></a>
+                <a href="#support"><li>Support</li></a>
+            </ul>
+        </nav>
+        <div class="head">
+            <h1>Champions</h1>
+            <h1>Tech</h1>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Welcome to Champions Tech</h2>
+        <h4>Your partner for web development, app design, video editing, community management, and AI solutions.</h4>
+    </div>
+    <div class="text-overlay">
+        <a href="#serviceM">Discover</a>
+    </div>
+    <section id="About">
+    <div class="about-section">
+        <div class="about_content">
+            <h1>About Us</h1>
+            <p>
+                At Champions Tech, we're dedicated to transforming ideas into impactful digital solutions. Our team specializes in web development, app design, video editing, community management, and AI-driven strategies, ensuring that your projects stand out in the digital landscape.
+                <br><br>
+                As a company, we are driven by innovation, integrity, and a passion for excellence. We believe in the power of technology to create meaningful change, and we're committed to helping our clients achieve their goals through cutting-edge digital experiences.
+                <br><br>
+                Whether you're looking to build a new website, enhance your social media presence, or explore AI-driven solutions, Champions Tech is here to guide you every step of the way. Let's connect and create something extraordinary together!
+            </p>
+        </div>
+    </div>
+</section>
+    <section id="serviceM">
+    <div class="service">
+        <h1>Our Services</h1>
+        <h4>Web/App Development</h4>
+        <img src="monte_blotter_code.jpg" alt="Programming">
+        <h4>Web/App Design</h4>
+        <img src="images (6).jpeg" alt="Design">
+        <h4>Video/Graphic Editing</h4>
+        <img src="download (1).jpeg" alt="Editing">
+        <h4>Social Media Management</h4>
+        <img src="download.jpeg" alt="Community Management">
+        <h4>Artificial Intelligence</h4>
+        <img src="WhatsApp Image 2024-08-19 at 18.53.17_11caf2ed.jpg" alt="Artificial Intelligence">
+    </div>
+</section>
+<hr>
+<section id="support">
+    <div class="support">
+        <div class="support_content">
+            <h1>Support</h1>
+            <p>
+                At Champions Tech, we believe in giving back to our community. That's why we are committed to supporting charitable causes and making a positive impact in the world. A portion of our proceeds goes to various charities and community initiatives that align with our values.
+                <br><br>
+                By partnering with us, you're not only investing in top-notch technology solutions but also contributing to meaningful change. We support a range of causes, from education and health to environmental sustainability and social justice.
+                <br><br>
+                If you would like to learn more about our charitable efforts or suggest a cause you believe in, please feel free to reach out to us. Together, we can make a difference!
+            </p>
+        </div>
+    </div>
+</section>
+<hr>
+    <div class="footer">
+        <div class="footer-column tile-content">
+            <h1>Champions</h1>
+            <p>Your partner in innovative technology solutions.</p>
+        </div>
+        <section id="contact">
+        <div class="footer-column tile-content">
+            <h1>Contact</h1>
+            <div class="contact-row">
+                <img src="download (5).png" alt="Address Icon">
+                <span class="tile-field">NIGERIA</span>
+            </div>
+            <div class="contact-row">
+                <img src="images (8).jpeg" alt="Phone Icon">
+                <span class="tile-field">+234-805-727-878-08</span>
+            </div>
+            <div class="contact-row">
+                <img src="images (1).png" alt="Email Icon">
+                <span class="tile-field">championsmail18@gmail.com</span>
+            </div>
+        </section>
+        </div>
+    </div>
+</body>
+</html>
